@@ -2,7 +2,7 @@
 
 ## Summary
 
-vitest will simply exit if the test contains an unexpected `process.exit` call, This may be very bad for troubleshooting some asynchronous tasks.
+vitest will simply exit if the test contains an unexpected `process.exit` call, This may be very bad for troubleshooting some asynchronous tasks from from dependencies.
 
 ## Step to reproduce
 
@@ -14,5 +14,4 @@ vitest will simply exit if the test contains an unexpected `process.exit` call, 
 3. Run `pnpm test` to execute same test with `jest`, you'll find that jest is able to tell you what went wrong:
 
 ![](assets/jest.png)
-
 
