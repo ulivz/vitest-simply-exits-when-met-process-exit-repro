@@ -4,7 +4,7 @@ Reproduction of [vitest#2615](https://github.com/vitest-dev/vitest/issues/2615).
 
 ## Summary
 
-`vitest` will simply exit if the test contains an unexpected `process.exit` call, This may be very bad for troubleshooting some asynchronous tasks from from dependencies.
+`vitest` will simply exit if the test contains an unexpected `process.exit` call, this may be very bad for troubleshooting some asynchronous tasks from from dependencies.
 
 ## Step to reproduce
 
@@ -23,4 +23,4 @@ Reproduction of [vitest#2615](https://github.com/vitest-dev/vitest/issues/2615).
 
 I am currently locating that the problem is that vitest will exit directly when the **Worker** process driving the test exits:
 
-https://github.com/vitest-dev/vitest/blob/199776767a10bcd9f241e36a5cdd578c7d7c0dc2/packages/vitest/src/node/pool.ts#L140-142
+https://github.com/vitest-dev/vitest/blob/199776767a10bcd9f241e36a5cdd578c7d7c0dc2/packages/vitest/src/node/pool.ts#L140-L142
