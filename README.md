@@ -10,7 +10,7 @@ Reproduction of [vitest#2615](https://github.com/vitest-dev/vitest/issues/2615).
 
 1. `git clone https://github.com/ulivz/vitest-simply-exits-when-met-process-exit-repro`
 1. `pnpm i`
-1. Run `npm run test`, you will notice that `vitest` will not give you any logs:
+1. Run `npm run test`, you will notice that `vitest` process will exit and not give you any logs:
 
 ![](https://github.com/ulivz/vitest-simply-exits-when-met-process-exit-repro/blob/main/assets/vitest.png?raw=true)
 
