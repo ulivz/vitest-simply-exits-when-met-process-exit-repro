@@ -1,6 +1,6 @@
 # vitest-simply-exits-when-met-process-exit-repro
 
-Reproduction of [vitest#2615](https://github.com/vitest-dev/vitest/issues/2615)
+Reproduction of [vitest#2615](https://github.com/vitest-dev/vitest/issues/2615).
 
 ## Summary
 
@@ -10,12 +10,17 @@ Reproduction of [vitest#2615](https://github.com/vitest-dev/vitest/issues/2615)
 
 1. `git clone https://github.com/ulivz/vitest-simply-exits-when-met-process-exit-repro`
 1. `pnpm i`
-2. Run `pnpm test`, you will notice that `vitest` will not give you any logs:
+1. Run `npm run test`, you will notice that `vitest` will not give you any logs:
 
 ![](https://github.com/ulivz/vitest-simply-exits-when-met-process-exit-repro/blob/main/assets/vitest.png?raw=true)
 
-1. Run `pnpm test` to execute same test with `jest`, you'll find that jest is able to tell you what went wrong:
+1. Run `npm run test:jest` to execute same test with `jest`, you'll find that jest is able to tell you what went wrong:
 
 ![](https://github.com/ulivz/vitest-simply-exits-when-met-process-exit-repro/blob/main/assets/jest.png?raw=true)
 
 
+## Relevant Information
+
+I am currently locating that the problem is that vitest will exit directly when the **Worker** process driving the test exits:
+
+https://github.com/vitest-dev/vitest/blob/199776767a10bcd9f241e36a5cdd578c7d7c0dc2/packages/vitest/src/node/pool.ts#L140-142
